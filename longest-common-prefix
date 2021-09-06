@@ -1,0 +1,27 @@
+// https://leetcode.com/problems/longest-common-prefix/
+
+class Solution {
+    public String longestCommonPrefix(String[] strs) {
+        
+        /* 
+        if the list is empty return ""
+        the first word will be the most common prefix, then compare it to every string and take off letters
+        that arent the same
+        
+        
+        */
+        if (strs.length == 0)
+        {
+            return "";
+        }
+        
+        String prefix = strs[0]; // set the prefixto the first word to begin with, then start taking off numbers
+        
+        for(int i = 1; i < strs.length; i++) {  // looking at first string and comparing it to the second one in list
+            while (strs[i].indexOf(prefix) != 0) {
+                prefix = prefix.substring(0, prefix.length()-1); // takes a letter off the prefix until equal
+        }
+        return prefix;
+        
+    }
+}
